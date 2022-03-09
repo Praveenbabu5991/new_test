@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>UPLOAD PREDICTION</title>
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            body{
+background:#eb4559;
+}
+.container{
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+position:absolute;
+}
+.upload-box{
+font-size:16px;
+background:white;
+border-radius: 50px;
+box-shadow:5px 5px 10px black;
+width:350px;
+outline:none;
+}
+::-webkit-file-upload-button{
+color:white;
+background:#206a5d;
+padding:20px;
+border:none;
+border-radius: 50px;
+box-shadow: 1px 0 1px 1px #6b4559;
+outline:none;
+
+}
+::-webkit-file-upload-button:hover{
+background:#438a5e;
+}
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+        <form method="POST" action="{% url 'result' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <input type="file" class="upload-box" name="myfile"><br><br><br>
+            <input type="submit" class="upload-box" name="submit" value="Export excell">
+
+        </form>
+        </div>
+    </body>
+</html>
